@@ -103,7 +103,7 @@ class Select extends Component
                         @endif
 
                         @foreach ($options as $option)
-                            <option @if(!is_null($this->value) && $value ==data_get($option, $optionValue)) selected @endif value="{{ data_get($option, $optionValue) }}" @if(data_get($option, 'disabled')) disabled @endif>{{ data_get($option, $optionLabel) }}</option>
+                            <option @if(!is_null($value) && $value==data_get($option, $optionValue)) selected @endif value="{{ data_get($option, $optionValue) }}" @if(data_get($option, 'disabled')) disabled @endif>{{ data_get($option, $optionLabel) }}</option>
                         @endforeach
                     </select>
 
@@ -156,3 +156,5 @@ class Select extends Component
         HTML;
     }
 }
+
+
