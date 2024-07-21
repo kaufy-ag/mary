@@ -45,8 +45,8 @@ class MaryInstallCommand extends Command
 
         $this->info("\n");
         $this->info("✅  Done! Run `yarn dev` or `npm run dev` or `bun run dev` or `pnpm dev`");
-        $this->info("🌟  Give it a star: https://github.com/robsontenorio/mary");
-        $this->info("❤️  Sponsor this project: https://github.com/sponsors/robsontenorio\n");
+        $this->info("🌟  Give it a star: https://github.com/kaufy-ag/mary");
+        $this->info("❤️  Sponsor this project: https://github.com/sponsors/kaufy-ag\n");
     }
 
     public function installLivewire(string $shouldInstallVolt)
@@ -121,11 +121,11 @@ class MaryInstallCommand extends Command
         $tailwindJs = File::get($tailwindJsPath);
         $originalContents = str($tailwindJs)->after('contents')->after('[')->before(']');
 
-        if ($originalContents->contains('robsontenorio/mary')) {
+        if ($originalContents->contains('kaufy-ag/mary')) {
             return;
         }
 
-        $contents = $originalContents->squish()->trim()->remove(' ')->explode(',')->add('"./vendor/robsontenorio/mary/src/View/Components/**/*.php"')->filter()->implode(', ');
+        $contents = $originalContents->squish()->trim()->remove(' ')->explode(',')->add('"./vendor/kaufy-ag/mary/src/View/Components/**/*.php"')->filter()->implode(', ');
         $contents = str($contents)->prepend("\n\t\t")->replace(',', ",\n\t\t")->append("\r\n\t");
         $contents = str($tailwindJs)->replace($originalContents, $contents);
 

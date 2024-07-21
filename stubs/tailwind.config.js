@@ -8,7 +8,7 @@ export default {
         "./app/Livewire/**/**/*.php",
 
         // Add mary
-        "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
+        "./vendor/kaufy-ag/mary/src/View/Components/**/*.php"
     ],
     theme: {
         extend: {},

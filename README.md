@@ -1,14 +1,14 @@
-<p align="center"><img width="200" src="https://github.com/robsontenorio/mary-ui.com/blob/main/public/mary.png?raw=true"></p>
+<p align="center"><img width="200" src="https://github.com/kaufy-ag/mary-ui.com/blob/main/public/mary.png?raw=true"></p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/robsontenorio/mary">
-        <img src="https://img.shields.io/packagist/dt/robsontenorio/mary?cacheSeconds=60">
+    <a href="https://packagist.org/packages/kaufy-ag/mary">
+        <img src="https://img.shields.io/packagist/dt/kaufy-ag/mary?cacheSeconds=60">
     </a>
-    <a href="https://packagist.org/packages/robsontenorio/mary">
-        <img src="https://img.shields.io/packagist/v/robsontenorio/mary?label=stable&color=blue&cacheSeconds=60">
+    <a href="https://packagist.org/packages/kaufy-ag/mary">
+        <img src="https://img.shields.io/packagist/v/kaufy-ag/mary?label=stable&color=blue&cacheSeconds=60">
     </a>
-    <a href="https://packagist.org/packages/robsontenorio/mary">
-        <img src="https://poser.pugx.org/robsontenorio/mary/license.svg">
+    <a href="https://packagist.org/packages/kaufy-ag/mary">
+        <img src="https://poser.pugx.org/kaufy-ag/mary/license.svg">
     </a>
 </p>
 
@@ -22,7 +22,7 @@ You can read the official documentation on the [maryUI website](https://mary-ui.
 
 ## Sponsor
 
-Let's keep pushing it, [sponsor me](https://github.com/sponsors/robsontenorio) ❤️
+Let's keep pushing it, [sponsor me](https://github.com/sponsors/kaufy-ag) ❤️
 
 ## Discord 
 
@@ -31,14 +31,14 @@ Come to say hello on [maryUI Discord](https://discord.gg/c2Dv8T2X2s)
 
 ## Follow me
 
-[@robsontenorio](https://twitter.com/robsontenorio)
+[@kaufy-ag](https://twitter.com/kaufy-ag)
 
 ## Contributing
 
 Clone the repository into some folder **inside your app**.
 
 ```bash
-git clone git@github.com:robsontenorio/mary.git
+git clone git@github.com:kaufy-ag/mary.git
 ```
 
 Change `composer.json` from **your app**
@@ -49,7 +49,7 @@ Change `composer.json` from **your app**
 
 // Add this
 "repositories": {
-    "robsontenorio/mary": {
+    "kaufy-ag/mary": {
         "type": "path",
         "url": "/path/to/mary", // <- change the path
         "options": {
@@ -64,7 +64,7 @@ Change `composer.json` from **your app**
 Require the package again for local symlink.
 
 ```bash
-composer require robsontenorio/mary
+composer require kaufy-ag/mary
 ```
 
 Start dev
