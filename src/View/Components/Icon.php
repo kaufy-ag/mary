@@ -11,10 +11,16 @@ class Icon extends Component
 {
     public string $uuid;
 
+    private $is_hero_icon = true;
+
     public function __construct(
         public string $name,
         public ?string $label = null
     ) {
+        $this->is_hero_icon = strlen($name) >= 2
+                     && $name[0] == 'o'
+                     && $name[0] == '-';
+
         $this->uuid = "mary" . md5(serialize($this));
     }
 
@@ -32,6 +38,23 @@ class Icon extends Component
     }
 
     public function render(): View|Closure|string
+    {
+        if ($this->is_hero_icon) {
+            return $this->renderHeroIcon();
+        }
+        else {
+            return $this->renderFontAwesome();
+        }
+
+    }
+
+    private function renderFontAwesome(): View|Closure|string
+    {
+        $name = $this->name;
+
+        return "<i class=\"fa-solid $name\"></i>";
+    }
+    private function renderHeroIcon(): View|Closure|string
     {
         return <<<'HTML'
                 @if(strlen($label ?? '') > 0)
