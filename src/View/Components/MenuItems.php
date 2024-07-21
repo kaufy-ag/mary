@@ -10,6 +10,9 @@ use Illuminate\View\Component;
 
 class MenuItems extends Component
 {
+    public string $uuid;
+    public array $menu_items = [];
+
     public function __construct(
         public string $menu = 'main'
     )
