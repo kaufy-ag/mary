@@ -17,17 +17,19 @@ class MenuItems extends Component
         public string $menu = 'main'
     )
     {
+        $user = auth()->user();
+
         $this->uuid = "mary" . md5(serialize($this));
-        $this->menu_items = empty(auth()->user())
+        $this->menu_items = empty($user)
             ? []
-            : Config::get('menu.' . $menu);
+            : config('menu.' . $menu);
 
         foreach ($this->menu_items as $index => $one) {
             if (!empty($one['can']) && !$user->can($one['can'])) {
                 unset($this->menu_items[$index]);
                 continue;
             }
-            if (!empty($one['debug']) && App::isProduction()) {
+            if (!empty($one['debug']) && app()->isProduction()) {
                 unset($this->menu_items[$index]);
                 continue;
             }
@@ -38,7 +40,7 @@ class MenuItems extends Component
                         unset($this->menu_items[$index][$sindex]);
                         continue;
                     }
-                    if (!empty($one['debug']) && App::isProduction()) {
+                    if (!empty($one['debug']) && app()->isProduction()) {
                         unset($this->menu_items[$index][$sindex]);
                         continue;
                     }
@@ -56,7 +58,7 @@ class MenuItems extends Component
     {
         return <<<'HTML'
 
-    @foreach($menu as $one)
+    @foreach($menu_items as $one)
     
         @if (!empty($one['submenu']))
             <x-menu-sub :title="__($one['title'])" :icon="$one['icon']">
