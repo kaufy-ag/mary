@@ -48,7 +48,7 @@ class Collapse extends Component
                         @endif
 
                         <div
-                            {{ $heading->attributes->merge(["class" => "collapse-title text-xl font-medium"]) }}
+                            {{ $heading->attributes->merge(["class" => "collapse-title text-xl font-medium border-b border-base-300 bg-base-200/50"]) }}
 
                             @if(isset($noJoin))
                                 :class="model == '{{ $name }}' && 'z-10'"
@@ -62,7 +62,7 @@ class Collapse extends Component
                                 <hr class="mb-3" />
                             @endif
 
-                            {{ $content }}
+                            <div class="pt-2">{{ $content }}</div>
                         </div>
                 </div>
             HTML;
