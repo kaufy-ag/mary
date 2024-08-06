@@ -69,11 +69,10 @@ class Icon extends Component
                 @endif
                 
                 <i 
-                    class="fa-sharp-duotone {{$name}}"
                     {{
                         $attributes->class([
-                            'inline',
-                            'w-5 h-5' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
+                            'fa-sharp-duotone ' .$name,
+                            'fa-lg' => !Str::contains($attributes->get('class') ?? '', ['fa-'])
                         ])
                      }}
                  ></i>
