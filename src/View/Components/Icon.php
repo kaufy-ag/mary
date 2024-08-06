@@ -71,7 +71,7 @@ class Icon extends Component
                 <i 
                     {{
                         $attributes->class([
-                            'fa-sharp-duotone ' .$name . ' duotone-colors',
+                            ($attributes->has('button') ? 'fa-regular' : 'fa-sharp-duotone') . ' ' .$name . ' duotone-colors',
                             'fa-lg' => !Str::contains($attributes->get('class') ?? '', ['fa-'])
                         ])
                      }}
