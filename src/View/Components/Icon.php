@@ -22,7 +22,7 @@ class Icon extends Component
     {
         $name = Str::of($this->name);
 
-        return $name->contains('.') ? $name->replace('.', '-') : "heroicon-{$this->name}";
+        return $name->contains('.') ? $name->replace('.', '-') : "heroicon-$this->name";
     }
 
     public function labelClasses(): ?string
@@ -37,31 +37,54 @@ class Icon extends Component
 
         $is_hero_icon = strlen($name) >= 2 && $name[0] == 'o' && $name[1] == '-';;
 
+        $icon = $this->icon();
+
         if ($is_hero_icon) {
             return <<<'HTML'
                 @if(strlen($label ?? '') > 0)
                     <div class="inline-flex items-center gap-1">
                 @endif
-                        <x-svg
-                            :name="$icon()"
-                            {{
-                                $attributes->class([
-                                    'inline',
-                                    'w-5 h-5' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
-                                ])
-                             }}
-                        />
-            
-                    @if(strlen($label ?? '') > 0)
-                            <div class="{{ $labelClasses() }}">
-                                {{ $label }}
-                            </div>
+                <x-svg
+                    :name="$icon()"
+                    {{
+                        $attributes->class([
+                            'inline',
+                            'w-5 h-5' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
+                        ])
+                     }}
+                />
+        
+                @if(strlen($label ?? '') > 0)
+                        <div class="{{ $labelClasses() }}">
+                            {{ $label }}
                         </div>
-                    @endif
+                    </div>
+                @endif
             HTML;
         }
         else {
-            return "<i class=\"fa-regular $name\"></i>";
+            return <<<'HTML'
+                @if(strlen($label ?? '') > 0)
+                    <div class="inline-flex items-center gap-1">
+                @endif
+                
+                <i 
+                    class="fa-sharp-duotone {{$name}}"
+                    {{
+                        $attributes->class([
+                            'inline',
+                            'w-5 h-5' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
+                        ])
+                     }}
+                 ></i>
+        
+                @if(strlen($label ?? '') > 0)
+                        <div class="{{ $labelClasses() }}">
+                            {{ $label }}
+                        </div>
+                    </div>
+                @endif    
+            HTML;
         }
 
     }
