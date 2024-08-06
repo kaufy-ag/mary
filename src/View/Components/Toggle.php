@@ -12,7 +12,8 @@ class Toggle extends Component
         public ?string $label = null,
         public ?string $hint = null,
         public ?bool $right = false,
-        public ?bool $tight = false
+        public ?bool $tight = false,
+        public ?string $icon = null
     ) {
     }
 
@@ -24,14 +25,14 @@ class Toggle extends Component
 
                         @if($right)
                             <span @class(["flex-1" => !$tight])>
-                                {{ $label}}
+                                @if($icon) <x-mary-icon name="{{ $icon}}" /> @endif {{ $label}}
                             </span>
                         @endif
 
                         <input type="checkbox" {{ $attributes->whereDoesntStartWith('class') }} {{ $attributes->class(['toggle toggle-primary']) }}  />
 
                         @if(!$right)
-                            {{ $label}}
+                            @if($icon) <x-mary-icon name="{{$icon}}" /> @endif {{ $label}}
                         @endif
                     </label>
 

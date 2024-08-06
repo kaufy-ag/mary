@@ -81,7 +81,7 @@ class Button extends Component
                     <!-- ICON -->
                     @if($icon)
                         <span class="block" @if($spinner) wire:loading.class="hidden" wire:target="{{ $spinnerTarget() }}" @endif>
-                            <x-mary-icon :name="$icon" />
+                            <x-mary-icon :name="$icon" button />
                         </span>
                     @endif
 
