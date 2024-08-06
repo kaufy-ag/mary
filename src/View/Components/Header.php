@@ -14,6 +14,7 @@ class Header extends Component
     public function __construct(
         public ?string $title = null,
         public ?string $subtitle = null,
+        public ?string $icon = null,
         public ?bool $separator = false,
         public ?string $progressIndicator = null,
         public ?bool $withAnchor = false,
@@ -46,7 +47,7 @@ class Header extends Component
                                     <a href="#{{ $anchor }}">
                                 @endif
 
-                                {{ $title }}
+                                @if ($icon) <x-mary-icon name="{{$icon}}" /> @endif{{ $title }}
 
                                 @if($withAnchor)
                                     </a>
